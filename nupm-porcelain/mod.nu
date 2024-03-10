@@ -5,7 +5,7 @@
 #
 #
 
-use nupm
+# use nupm
 
 # nupm-porcelain main
 export def --env main []: nothing -> nothing {
@@ -29,6 +29,7 @@ def info [ msg : string ] {
 }
 
 # will crash and burn if env is not good
+
 # nupm-porcelain get env
 export def "nupm get env" [] {{
 	PATH : $env.PATH,
@@ -42,7 +43,7 @@ export def "nupm get env" [] {{
 
 # nupm-porcelain print env
 export def "nupm print env" [] {
-    print $"(char newline)(nupm-porcelain get env | table -t compact -e)"
+    print $"(char newline)(get env | table -t compact -e)"
 }
 
 # nupm-porcelain enter
@@ -73,7 +74,7 @@ export def "nupm ls installed" [] {
 # https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls
 
 # nupm install can use a folder as a parameter, 
-tab completion from registry 
+# tab completion from registry 
 
 # nupm-porcelain install from registry
 def "nupm install from registry" [] {
@@ -83,4 +84,15 @@ def "nupm install from registry" [] {
 	| wrap value | upsert desription ""
 }
 
-# nupm
+#
+#
+# nupm-porcelain nupm uninstall
+
+
+#
+#
+# nupm-porcelain nu-complete nupm uninstall
+
+# todo gh-porcelain repo package
+# todo porcelain registry package
+#
