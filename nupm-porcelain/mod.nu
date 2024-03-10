@@ -3,7 +3,6 @@
 # 
 # learn and extend nupm using nupm
 #
-# TODO: install instructions with nupm and git
 #
 
 export use nupm
@@ -18,7 +17,7 @@ info "TODO: make suggestion to declutter $env by creating $env.NUPM_ENV instead 
 info " $env.NUPM_ENV = ( nupm-porcelain get-env ) "
 
 	warn "testing"
-	nupm nupm-home-prompt --no-confirm=false
+	nupm-home-prompt --no-confirm=false
 	
 	info "https://github.com/ddupas/nupm-porcelain"
     info "> use nupm-porcelain"
@@ -86,7 +85,7 @@ export def --env "set-env" [] {
 
 		info $"check if ($nupm_c) exists"
 		if not $nupm_c | path exists {
-			warn $"creating NUPM_CACH at ($nupm_c)"
+			warn $"creating NUPM_CACHE at ($nupm_c)"
 			mkdir $nupm_c
 		}
 		
