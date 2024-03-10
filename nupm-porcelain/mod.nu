@@ -40,7 +40,7 @@ def info [ msg : string ] {
 #
 
 # nupm-porcelain set-env
-export def --env "set-env" [] {
+def --env "set-env" [] {
 
 	info "check for XDG_CONFIG_HOME"
 	# TODO: windows setup XDG_CONFIG_HOME
@@ -68,7 +68,7 @@ export def --env "set-env" [] {
 		$nupm_h = $nu_h +  (char psep) + 'nupm'
 
 		info $"check if ($nupm_h) exists"
-		if not $nupm_h | path exists {
+		if not ($nupm_h | path exists) {
 			warn $"creating NUPM_HOME at ($nupm_h)"
 			mkdir $nupm_h
 		}
@@ -84,7 +84,7 @@ export def --env "set-env" [] {
 		$nupm_c = $nupm_h +  (char psep) + 'cache'
 
 		info $"check if ($nupm_c) exists"
-		if not $nupm_c | path exists {
+		if not ($nupm_c | path exists) {
 			warn $"creating NUPM_CACHE at ($nupm_c)"
 			mkdir $nupm_c
 		}
@@ -101,7 +101,7 @@ export def --env "set-env" [] {
 		$nu_l = [$nupm_h +  (char psep) + 'modules']
 
 		info $"check if ($nu_l.0) exists"
-		if not $nu_l.0 | path exists {
+		if not ($nu_l.0 | path exists) {
 			warn $"creating NU_LIB_DIRS at ($nu_l.0)"
 			mkdir $nu_l.0
 		}
@@ -165,8 +165,8 @@ export def "ls-pkgs" [] {
 
 # nupm-porcelain ls-installed
 export def "ls-installed" [] {
-	cd $env.NUPM_CACHE
-	cd git
+	cd $env.NUPM_HOME
+	cd modules
 	ls | get name | parse "{name}-{ver}" | get name
 }
 
