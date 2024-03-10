@@ -37,8 +37,4 @@ use nupm-porcelain
 ```   
 
 - config_local_nupm.nu is not minimal and clutters your namespace but is a learning bootstrap file
-- TODO: minimal nupm bootstrap gist
-- TODO: test and test
-    
-
-
+- TODO: minimal nupm bootstrap gist 
