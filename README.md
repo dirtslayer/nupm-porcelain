@@ -28,6 +28,7 @@ source config_local_nupm.nu
 
 use nupm
 
+cd
 git clone git@github.com:ddupas/nupm-porecelain.git --depth 1
 
 nupm install --force --path nupm-porcelain/
