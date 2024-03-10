@@ -1,0 +1,7 @@
+{
+    name: nupm-porcelain
+    type: module
+    version: "0.1.0"
+    description: "Nushell package manager - extras"
+    license: "LICENSE"
+}
