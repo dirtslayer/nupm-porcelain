@@ -167,7 +167,7 @@ export def "ls-pkgs" [] {
 export def "ls-installed" [] {
 	cd $env.NUPM_HOME
 	cd modules
-	ls | get name | parse "{name}-{ver}" | get name
+	ls | get name
 }
 
 # TODO: put completion in the actual package so its not in the command ns
