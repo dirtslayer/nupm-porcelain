@@ -98,15 +98,42 @@ export def "nu-complete nupm repourl" [] {
 	| upsert description ""
 }
 
+
+
+# https://github.com/<user>/<project>/tree/<commit-hash>
+
+# wish:
+# command?: record<key:string,value:string>@"nu-complete-combo nupm repourl",
+# https://github.com/amtoine/scripts/tree/main/nu-clippy
+
+# there is an extra param in the rust source investigate
+
+
 # nupm-porcelain repourl - use tab completion to select repo url from registry
 export def "nupm repourl"  [
 	command?: string@"nu-complete nupm repourl",
 ] {
-	let choiceindex: int = ( $command | split column ':' | get column1 | into int | get 0 )
-	nupm enter
-	open registry.nuon | get git
-	| select url path    # path version revision
-	| get $choiceindex
-	| get url path
-	| str join "/"
-}
+		mut choiceindex = null
+		try {	
+			$choiceindex = ( $command | split column ':' | get column1 | into int | get 0 )
+		}
+		if ( $choiceindex | is-empty ) {
+				nupm enter
+			 	open registry.nuon | get git  
+				| enumerate 
+			 	| flatten
+			    | input list -d name
+				| $"($in.url)/tree/($in.revision)/($in.path)"
+
+
+
+		} else {
+			nupm enter
+			open registry.nuon | get git
+			| select url revision path    # path version revision
+			| get $choiceindex
+			| select url revision path
+			| $"($in.url)/tree/($in.revision)/($in.path)"
+		}
+	
+	}
