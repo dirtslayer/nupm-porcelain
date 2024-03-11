@@ -10,7 +10,7 @@ Comments welcome. March 2024
 
 0. Install nushell if not installed
 
-(nushell.sh)[http://nushell.sh]
+[nushell.sh](http://nushell.sh)
 
 1. Enter nushell
 
@@ -22,7 +22,7 @@ nu
 
 2. Install nupm if not installed
 
-(nupm - a nushell package manager)[https://github.com/nushell/nupm]
+[nupm - a nushell package manager](https://github.com/nushell/nupm)
 
 > test this  
 ```nu
@@ -42,7 +42,7 @@ use nupm/
 
 > bootstrap nupm
 
-(My config_local_nupm.nu)[https://gist.githubusercontent.com/ddupas/03ef41086fe6abc91f8aff89e8b066fd/raw/3a5d74b05bdca1c257791fc00b31bf1f50aa50b1/config_local_nupm.nu]
+[My config_local_nupm.nu](https://gist.githubusercontent.com/ddupas/03ef41086fe6abc91f8aff89e8b066fd/raw/3a5d74b05bdca1c257791fc00b31bf1f50aa50b1/config_local_nupm.nu)
 
 I add `source config_local_nupm.nu` to my nushell config.
 
@@ -73,7 +73,7 @@ use nupm-porcelain/
 
 ## thoughts
 
-nupm-porcelain demonstrates how you can augment packages independently with nupm 
+nupm-porcelain demonstrates how you can augment packages independently with modules 
 
 nupm is a wrapper for nushells use command, 
 it helps use find modules by being a path manager and module installer
@@ -81,4 +81,3 @@ it helps use find modules by being a path manager and module installer
 nupm-porcelain does not clutter nupm's namespace and the authors of nupm do not have
 to worry about nupm-porcelain breaking nupm
 
-I was so worried I'd have to make my first PR 🤐
