@@ -11,7 +11,7 @@
             nupm-porcelain,
             "",
             "https://github.com/ddupas/nupm-porcelain",
-            "",
+            "latest",
             "nupm-porcelain"
         ]
     ]
