@@ -1,57 +1,61 @@
 {
-name: nupm-porcelain
-description: "Nushell package manager - extras"
-
-type: module
-version: "0.1.0"
-main: "mod.nu"
-
-
-keywords : [
-sample, 
-module    
-]
-
-author : "Darrell D"
-license : ISC
-homepage :  "https://github.com/ddupas/nupm-porcelain"
-repository : {
-  type : "git",
-  url : "git+https://github.com/ddupas/nupm-porcelain.git"
+  name: nupm-porcelain
+  description: "Nushell package manager - extras"
+  type: module
+  version: "0.1.0"
 }
 
 
-scripts: [
-    { script: build, 
-      command: "nupm build"
-    },
-    { script: test,
-      command: "nupm test"
-    },
-    { script: deploy,
-      command: "nupm deploy"
-    }
-]
 
-dependancies: [
-{ 
-package: "https://github.com/nushell/nupm/",
-version: latest 
-},
-{ 
-package: "https://github.com/amtoine/nu-git-manager/pkgs/nu-git-manager",
-version: latest 
-}
-]
 
-devDependencies : [
-{ 
-package: nu-check,
-version: latest 
-},
-{ 
-package: "https://github.com/nushell/nu_scripts/modules/after",
-version: latest 
-}
-]
-}
+#main: "mod.nu"
+
+
+#keywords : [
+#sample, 
+#module    
+#]
+
+#author : "Darrell D"
+#license : ISC
+#homepage :  "https://github.com/ddupas/nupm-porcelain"
+#repository : {
+#  type : "git",
+#  url : "git+https://github.com/ddupas/nupm-porcelain.git"
+#}
+#}
+
+#scripts: [
+#    { script: build, 
+#      command: "nupm build"
+#    },
+#    { script: test,
+#      command: "nupm test"
+#    },
+#    { script: deploy,
+#      command: "nupm deploy"
+#    }
+#]
+
+#dependancies: [
+#{ 
+#package: "https://github.com/nushell/nupm/",
+#version: latest 
+#},
+#{ 
+#package: "https://github.com/amtoine/nu-git-manager/pkgs/nu-git-manager",
+#version: latest 
+#}
+#
+#
+#devDependencies : [
+#{ 
+#package: nu-check,
+#version: latest 
+#},
+#{ 
+#package: "https://github.com/nushell/nu_scripts/modules/after",
+#version: latest 
+#}
+#]
+#}
