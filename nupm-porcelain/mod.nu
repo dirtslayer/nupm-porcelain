@@ -87,7 +87,7 @@ export def "nupm ls installed scripts" [] {
 			#name,
             #version,
             #url,
-            #revision,
+	        #revision,
             #path
 
 
