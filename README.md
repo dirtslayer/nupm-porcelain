@@ -42,22 +42,10 @@ use nupm/
 
 > bootstrap nupm
 
-[My config_local_nupm.nu](https://gist.githubusercontent.com/ddupas/03ef41086fe6abc91f8aff89e8b066fd/raw/3a5d74b05bdca1c257791fc00b31bf1f50aa50b1/config_local_nupm.nu)
+[My config_local_nupm.nu](https://gist.github.com/ddupas/03ef41086fe6abc91f8aff89e8b066fd#file-config_local_nupm-nu)
 
-I add `source config_local_nupm.nu` to my nushell config.
+I source this at nu startup from config.nu to make nupm available.
 
-
-> test this
-
-```nu
-
-cd 
-cd .config/nushell
-http get https://gist.githubusercontent.com/ddupas/03ef41086fe6abc91f8aff89e8b066fd/raw/3a5d74b05bdca1c257791fc00b31bf1f50aa50b1/config_local_nupm.nu
-| save config_local_nupm.nu -f
-source config_local_nupm.nu
-
-```
 
 4. Install nupm-porcelain
 
@@ -78,6 +66,6 @@ nupm-porcelain demonstrates how you can augment packages independently with modu
 nupm is a wrapper for nushells use command, 
 it helps use find modules by being a path manager and module installer
 
-nupm-porcelain does not clutter nupm's namespace and the authors of nupm do not have
-to worry about nupm-porcelain breaking nupm
+nu-complete only passes a single string between its caller. 
+lookup keys have to be embeded as an enumeration and rehydrated once the value is selected
 
