@@ -19,7 +19,7 @@ export def "nupm get env" [] {{
 
 # nupm-porcelain print env
 export def "nupm print env" [] {
-    print $"(char newline)(get env | table -t compact -e)"
+    print $"(char newline)(nupm get env | table -t compact -e)"
 }
 
 # nupm-porcelain enter
@@ -103,9 +103,8 @@ export def "nupm repourl"  [
 	command?: string@"nu-complete nupm repourl",
 ] {
 	let choiceindex: int = ( $command | split column ':' | get column1 | into int | get 0 )
-	print $"choiceindex: ($choiceindex)"
 	nupm enter
-	open registry.nuon | get git 
+	open registry.nuon | get git
 	| select url path    # path version revision
 	| get $choiceindex
 	| get url path
