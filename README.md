@@ -47,7 +47,16 @@ use nupm/
 I source this at nu startup from config.nu to make nupm available.
 
 
-4. Install nupm-porcelain
+4. Install nupm-porcelain with nupm
+
+```
+nupm install https://github.com/ddupas/nupm-porcelain
+use nupm-porcelain
+
+```
+
+
+4. [OR] Install nupm-porcelain with git
 
 
 ```nu
@@ -68,4 +77,3 @@ it helps use find modules by being a path manager and module installer
 
 nu-complete only passes a single string between its caller. 
 lookup keys have to be embeded as an enumeration and rehydrated once the value is selected
-

@@ -61,6 +61,9 @@ def "nu-complete nupm install" [] {
 	| upsert description "latest"
 }
 
+
+# TODO: handle revisions with install / uninstall
+
 # nupm-porcelain install from default registry, with git clone latest version
 export def "nupm install" [
 	command?: string@"nu-complete nupm install"
@@ -119,7 +122,7 @@ export def "nupm repourl"  [
 		}
 		if ( $choiceindex | is-empty ) {
 				nupm enter
-			 	open registry.nuon | get git  
+			 	open registry.nuon | get git  gi
 				| enumerate 
 			 	| flatten
 			    | input list -d name
