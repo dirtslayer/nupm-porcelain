@@ -61,7 +61,7 @@ def "nu-complete nupm install" [] {
 	| upsert description "latest"
 }
 
-# nupm-porcelain: install from default registry, with git clone latest version
+# nupm-porcelain install from default registry, with git clone latest version
 export def "nupm install" [
 	command?: string@"nu-complete nupm install"
 ] {

@@ -2,6 +2,24 @@
     name: nupm-porcelain
     type: module
     version: "0.1.0"
+    main: "mod.nu"
     description: "Nushell package manager - extras"
-    license: "LICENSE"
+    dependancies: [
+        https://github.com/nushell/nupm/ : latest
+    ]
+    devDependencies : [
+      nu-check : latest,
+      nu-highlight : latest
+    ]
+    repository : {
+        type : "git",
+        url : "git+https://github.com/ddupas/nupm-porcelain.git"
+    }
+    keywords : [
+        sample, 
+        module    
+    ]
+    author : "Darrell D"
+    license : ISC
+    homepage :  "https://github.com/ddupas/nupm-porcelain"
 }
