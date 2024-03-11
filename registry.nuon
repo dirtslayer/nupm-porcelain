@@ -9,7 +9,7 @@
         ];
         [
             nupm-porcelain,
-            "",
+            "0.1.0",
             "https://github.com/ddupas/nupm-porcelain",
             "latest",
             "nupm-porcelain"
