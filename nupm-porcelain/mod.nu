@@ -92,7 +92,7 @@ export def "nupm ls installed scripts" [] {
 
 
 # nupm-porcelain nu-complete install from registry
-def "nu-complete nupm rinstall" [] {
+def "nu-complete porcelain install" [] {
 	cd $env.NUPM_HOME
 	open registry.nuon 
 	| get git 
@@ -101,12 +101,12 @@ def "nu-complete nupm rinstall" [] {
 }
 
 # nupm-porcelain - wrapper to select from default registry
-export def "nupm rinstall" [
-	--package: string@"nu-complete nupm rinstall"
+export def "porcelain install" [
+	command?: string@"nu-complete porcelain install"
 ] {
 	# use nupm
 	# nupm install $package
-	print $package
+	print $command
 }
 
 
