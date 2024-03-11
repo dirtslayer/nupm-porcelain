@@ -10,9 +10,9 @@
         [
             nupm-porcelain,
             "",
-            "https://github.com/ddupas/nupm-porcelain/nupm-porcelain",
+            "https://github.com/ddupas/nupm-porcelain",
             "",
-            .
+            "nupm-porcelain"
         ]
     ]
 }
