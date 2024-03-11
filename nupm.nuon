@@ -1,9 +1,27 @@
 {
 name: nupm-porcelain
+description: "Nushell package manager - extras"
+
 type: module
 version: "0.1.0"
 main: "mod.nu"
-scritps: [
+
+
+keywords : [
+sample, 
+module    
+]
+
+author : "Darrell D"
+license : ISC
+homepage :  "https://github.com/ddupas/nupm-porcelain"
+repository : {
+  type : "git",
+  url : "git+https://github.com/ddupas/nupm-porcelain.git"
+}
+
+
+scripts: [
     { script: build, 
       command: "nupm build"
     },
@@ -15,9 +33,6 @@ scritps: [
     }
 ]
 
-
-
-description: "Nushell package manager - extras"
 dependancies: [
 { 
 package: "https://github.com/nushell/nupm/",
@@ -39,15 +54,4 @@ package: "https://github.com/nushell/nu_scripts/modules/after",
 version: latest 
 }
 ]
-keywords : [
-sample, 
-module    
-]
-author : "Darrell D"
-license : ISC
-homepage :  "https://github.com/ddupas/nupm-porcelain"
-repository : {
-type : "git",
-url : "git+https://github.com/ddupas/nupm-porcelain.git"
-}
 }
