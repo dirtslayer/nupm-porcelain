@@ -4,16 +4,19 @@ type: module
 version: "0.1.0"
 main: "mod.nu"
 scritps: [
-    { script: build 
-      closure: { print nupm build }  
+    { script: build, 
+      command: "nupm build"
     },
-    { script: test 
-      closure: { print nupm test}  
+    { script: test,
+      command: "nupm test"
     },
-    { script: deploy 
-      closure: { print nupm deploy }  
+    { script: deploy,
+      command: "nupm deploy"
     }
 ]
+
+
+
 description: "Nushell package manager - extras"
 dependancies: [
 { 
@@ -23,16 +26,16 @@ version: latest
 { 
 package: "https://github.com/amtoine/nu-git-manager/pkgs/nu-git-manager",
 version: latest 
-},
-package: ""
+}
 ]
+
 devDependencies : [
 { 
 package: nu-check,
 version: latest 
 },
 { 
-package: https://github.com/nushell/nu_scripts/modules/after,
+package: "https://github.com/nushell/nu_scripts/modules/after",
 version: latest 
 }
 ]
