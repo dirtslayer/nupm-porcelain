@@ -112,7 +112,7 @@ export def "nu-complete nupm repourl" [] {
 # there is an extra param in the rust source investigate
 
 
-# nupm-porcelain repourl - use tab completion to select repo url from registry
+# nupm-porcelain repourl - select repo to get url from registry
 export def "nupm repourl"  [
 	command?: string@"nu-complete nupm repourl",
 ] {

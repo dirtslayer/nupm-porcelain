@@ -35,9 +35,9 @@
         ];
         [
             nupm-porcelain,
-            "latest",
-            "https://github.com/ddupas/nupm-porcelain",
-            "latest",
+            "",
+            "https://github.com/ddupas/nupm-porcelain/nupm-porcelain",
+            "",
             .
         ]
     ]
