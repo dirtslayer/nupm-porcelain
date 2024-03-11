@@ -63,10 +63,17 @@ export def "nupm ls local registry" [] {
 # in same repo ie nu-themes is part of nu-scripts,
 # see earlier note about registry and install commands of nupm
 
-# nupm-porcelain ls installed
-export def "nupm ls installed" [] {
+# nupm-porcelain ls installed modules
+export def "nupm ls installed modules" [] {
 	cd $env.NUPM_HOME
 	cd modules
+	ls | get name
+}
+
+# nupm-porcelain ls installed scripts
+export def "nupm ls installed scripts" [] {
+	cd $env.NUPM_HOME
+	cd scripts
 	ls | get name
 }
 
@@ -76,15 +83,35 @@ export def "nupm ls installed" [] {
 # nupm install can use a folder as a parameter, 
 # tab completion from registry 
 
-# nupm-porcelain install from registry
-def "nupm install from registry" [] {
+
+			#name,
+            #version,
+            #url,
+            #revision,
+            #path
+
+
+# nupm-porcelain nu-complete install from registry
+def "nu-complete nupm rinstall" [] {
 	cd $env.NUPM_HOME
 	open registry.nuon 
-	| get git | get name | uniq 
-	| wrap value | upsert desription ""
+	| get git 
+	| upsert value {|r| $"($r.url)($r.path)"}
+	| upsert desription $in.version
 }
 
-#
+# nupm-porcelain - wrapper to select from default registry
+export def "nupm rinstall" [
+	--package: string@"nu-complete nupm rinstall"
+] {
+	# use nupm
+	# nupm install $package
+	print $package
+}
+
+
+#package  # Name, path, or link to the package
+#    --registry: string@complete-registries 
 #
 # nupm-porcelain nupm uninstall
 
