@@ -122,7 +122,7 @@ export def "nupm repourl"  [
 		}
 		if ( $choiceindex | is-empty ) {
 				nupm enter
-			 	open registry.nuon | get git  gi
+			 	open registry.nuon | get git
 				| enumerate 
 			 	| flatten
 			    | input list -d name
