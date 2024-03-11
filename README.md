@@ -63,7 +63,7 @@ use nupm-porcelain/
 
 nupm-porcelain demonstrates how you can augment packages independently with modules 
 
-nupm is a wrapper for nushells use command, 
+nupm is a helper for nushells use command, 
 it helps use find modules by being a path manager and module installer
 
 nu-complete only passes a single string between its caller. 
