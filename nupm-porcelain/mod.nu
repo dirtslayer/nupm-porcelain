@@ -89,18 +89,6 @@ export def "nupm uninstall" [
 	rm -rf $command
 }
 
-export def "nu-complete nupm repourl" [] {
-	nupm enter
-	open registry.nuon | get git 
-	| select name 
-	| enumerate 
-	| flatten
-	| upsert prompt {|row| $"($row.index):($row.name)"}
-	| get prompt
-	| wrap value
-	| upsert description ""
-}
-
 
 
 # https://github.com/<user>/<project>/tree/<commit-hash>
@@ -114,29 +102,12 @@ export def "nu-complete nupm repourl" [] {
 
 # nupm-porcelain repourl - select repo to get url from registry
 export def "nupm repourl"  [
-	command?: string@"nu-complete nupm repourl",
+	command?: string@"nupm repourl",
 ] {
-		mut choiceindex = null
-		try {	
-			$choiceindex = ( $command | split column ':' | get column1 | into int | get 0 )
-		}
-		if ( $choiceindex | is-empty ) {
 				nupm enter
 			 	open registry.nuon | get git
 				| enumerate 
 			 	| flatten
 			    | input list -d name
 				| $"($in.url)/tree/($in.revision)/($in.path)"
-
-
-
-		} else {
-			nupm enter
-			open registry.nuon | get git
-			| select url revision path    # path version revision
-			| get $choiceindex
-			| select url revision path
-			| $"($in.url)/tree/($in.revision)/($in.path)"
-		}
-	
-	}
+}
