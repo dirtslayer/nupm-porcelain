@@ -7,7 +7,7 @@ export def --env main []: nothing -> nothing {
 
 # nupm-porcelain get env
 export def "nupm get env" [] {{
-	PATH : $env.PATH,
+	PATH : ( $env.PATH? | default $env.Path ),
 	GIT_REPOS_HOME : $env.GIT_REPOS_HOME,
 	XDG_CONFIG_HOME : $env.XDG_CONFIG_HOME,
 	NU_HOME : $env.NU_HOME,
