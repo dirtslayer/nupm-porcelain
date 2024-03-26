@@ -33,7 +33,7 @@ export def --env "nupm enter" [] {
 # nupm-porcelain lsregistry
 export def "nupm lsregistry" [] {
 	nupm enter
-	open registry.nuon | select git.name | uniq
+	open registry.nuon | select git.name | uniq | flatten
 }
 
 # TODO: handle packages that are installed as subfolder 
@@ -55,9 +55,9 @@ export def "nupm installed scripts" [] {
 }
 
 # nupm-porcelain nu-complete install from registry
-def "nu-complete nupm install" [] {
+def "nu-complete nupm-porcelain install" [] {
 	nupm enter
-	open registry.nuon | get git.url | uniq
+	open registry.nuon | get git.url | str replace 'https://github.com/' '' | uniq
 	| wrap value
 	| upsert description "latest"
 }
