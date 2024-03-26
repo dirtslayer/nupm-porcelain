@@ -2,6 +2,7 @@
 export def --env main []: nothing -> nothing {
 	warn "March 2024 Learning about Nushell Modules and Package Manager"
 	info "https://github.com/ddupas/nupm-porcelain"
+	info "git clone git@github.com:ddupas/nupm-porcelain.git"
     info "> use nupm-porcelain"
 }
 
@@ -64,25 +65,26 @@ def "nu-complete nupm install" [] {
 
 # TODO: handle revisions with install / uninstall
 
-# nupm-porcelain install from default registry, with git clone latest version
-export def "nupm install" [
+# nupm-porcelain install current from github,  nushell/nupm 
+export def "nupm-porcelain install" [
 	command?: string@"nu-complete nupm install"
 ] {
 	nupm enter
 	cd modules
-	^git clone --depth 1 $"($command).git"  	
+	#"git clone git@github.com:ddupas/nupm-porcelain.git"
+	^git clone --depth 1 $"git@github.com:($command).git"  	
 }
 
 # nupm-porcelain nu-complete uninstall
-def "nu-complete nupm uninstall" [] {
+def "nu-complete nupm-porcelain uninstall" [] {
 	nupm enter
 	cd modules
 	ls | get name | wrap value
 }
 
 # nupm-porcelain nupm uninstall
-export def "nupm uninstall" [
-	command?: string@"nu-complete nupm uninstall"
+export def "nupm-porcelain uninstall" [
+	command?: string@"nu-complete nupm-porcelain uninstall"
 ] {
 	nupm enter
 	cd modules
