@@ -67,7 +67,7 @@ def "nu-complete nupm-porcelain install" [] {
 
 # nupm-porcelain install current from github,  nushell/nupm 
 export def "nupm-porcelain install" [
-	command?: string@"nu-complete nupm install"
+	command?: string@"nu-complete nupm-porcelain install"
 ] {
 	nupm enter
 	cd modules
