@@ -8,13 +8,10 @@ export def --env main []: nothing -> nothing {
 
 # nupm-porcelain get env
 export def "nupm get env" [] {{
-	PATH : ( $env.PATH? | default $env.Path ),
-	GIT_REPOS_HOME : $env.GIT_REPOS_HOME,
-	XDG_CONFIG_HOME : $env.XDG_CONFIG_HOME,
-	NU_HOME : $env.NU_HOME,
+	PATH : ( $env.PATH? | default $env.Path? ),
 	NUPM_HOME : $env.NUPM_HOME,	
-	NUPM_CACHE : $env.NUPM_CACHE,
-	NUPM_TEMP : $env.NUPM_TEMP,
+#	NUPM_CACHE : $env.NUPM_CACHE,
+#	NUPM_TEMP : $env.NUPM_TEMP,
 	NU_LIB_DIRS : $env.NU_LIB_DIRS
 }}
 
@@ -23,16 +20,22 @@ export def "nupm print env" [] {
     print $"(char newline)(nupm get env | table -t compact -e)"
 }
 
+# nupm-porcelain enter repo
+export def --env "nupm enter repo" [] {
+	cd "/home/dd/git/nupm"
+}
+
 # nupm-porcelain enter
 export def --env "nupm enter" [] {
 	cd $env.NUPM_HOME
 }
 
+
 # TODO: look at the registry and install commands of nupm
 
 # nupm-porcelain lsregistry
 export def "nupm lsregistry" [] {
-	nupm enter
+	nupm enter repo
 	open registry.nuon | select git.name | uniq | flatten
 }
 
@@ -56,7 +59,7 @@ export def "nupm installed scripts" [] {
 
 # nupm-porcelain nu-complete install from registry
 def "nu-complete nupm-porcelain install" [] {
-	nupm enter
+	nupm enter repo
 	open registry.nuon | get git.url | str replace 'https://github.com/' '' | uniq
 	| wrap value
 	| upsert description "latest"
@@ -106,7 +109,7 @@ export def "nupm-porcelain uninstall" [
 export def "nupm repourl"  [
 	command?: string@"nupm repourl",
 ] {
-				nupm enter
+				nupm enter repo
 			 	open registry.nuon | get git
 				| enumerate 
 			 	| flatten
